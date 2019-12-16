@@ -67,20 +67,7 @@ Vagrant.configure("2") do |config|
   # Install Docker Compose
   # First, install required plugin https://github.com/leighmcculloch/vagrant-docker-compose:
   # vagrant plugin install vagrant-docker-compose
-  config.vm.provision :docker_compose
 
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-add-repository ppa:ansible/ansible
-    apt-get update
-    apt-get install -y apache2 nano ansible
-    apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    apt-get install docker-ce docker-ce-cli containerd.io
-    apt-cache madison docker-ce
-  SHELL
+  # config.vm.provision :docker_compose
+  config.vm.provision "shell", path: "install.sh"
 end
