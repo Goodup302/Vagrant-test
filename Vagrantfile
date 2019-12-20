@@ -68,6 +68,6 @@ Vagrant.configure("2") do |config|
   # First, install required plugin https://github.com/leighmcculloch/vagrant-docker-compose:
   # vagrant plugin install vagrant-docker-compose
 
-  # config.vm.provision :docker_compose
+  config.vm.provision :docker_compose
   config.vm.provision "shell", path: "install.sh"
 end
